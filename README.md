@@ -91,24 +91,22 @@ BLOBs compression
 Library supports transparent compression of BLOB data. Supported compression methods:"
 
  - `GzipCompressor`: GZIP compression using JDK GZIP implementation
- - `SnappyCompressor`: [Snappy](http://en.wikipedia.org/wiki/Snappy_%28software%29) compression,
-additional library must be added to classpath:
+ - `SnappyCompressor`: [Snappy](http://en.wikipedia.org/wiki/Snappy_%28software%29) compression
+ - `XzCompressor`: [LZMA2](http://en.wikipedia.org/wiki/Xz) compression
+ - `NoCompressor`: compression is disabled
+
+These libraries are required for Snappy and XZ compression:
 
     <dependency>
         <groupId>org.iq80.snappy</groupId>
         <artifactId>snappy</artifactId>
         <version>0.3</version>
     </dependency>
-
- - `XzCompressor`: [LZMA2](http://en.wikipedia.org/wiki/Xz) compression, additional library must be added to classpath:
-
     <dependency>
         <groupId>org.tukaani</groupId>
         <artifactId>xz</artifactId>
         <version>1.0</version>
     </dependency>
-
- - `NoCompressor`: compression is disabled
 
 License information
 -------------------
