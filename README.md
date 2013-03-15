@@ -35,6 +35,8 @@ Create BLOB and write data into it:
         blob = blobTool.create();
         // use OutputSteam from BLOB
         createHugeReport(blob.outputStream());
+        // save BLOB id in application table for subsequent use
+        save(new AppObj(foo, bar, blob.getId()));
     } finally {
         // release DB resources
         closeQuietly(blob);
@@ -46,6 +48,7 @@ Read data from BLOB:
     try {
         // open server-side BLOB by ID
         blob = blobTool.load(id);
+        // read stored data
         processStoredData(blob.inputStream());
     } finally {
         // release DB resources
